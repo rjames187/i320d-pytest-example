@@ -1,6 +1,9 @@
 import pytest
 
 def fix_phone_num(phone_num_to_fix):
+  if not phone_num_to_fix.isdigit():
+    raise ValueError("Can only format numbers")
+  
   # can only handle numbers that are exactly 10 digits long
   if (len(phone_num_to_fix) != 10):
     raise ValueError("Can only format numbers that are exactly 10 digits long")
@@ -21,3 +24,7 @@ def test_fix_phone_num():
 def test_short_input():
   with pytest.raises(ValueError):
     fix_phone_num("51")
+
+def test_non_digit():
+  with pytest.raises(ValueError):
+    fix_phone_num("mobile")
