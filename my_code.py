@@ -21,3 +21,4 @@ def test_other_formats():
 
 def test_another_fail():
   assert 1 == 2
+  assert 3 == 4
